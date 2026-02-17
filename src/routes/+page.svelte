@@ -8,6 +8,9 @@ This is your page!
   import ArticleBody from '$lib/components/ArticleBody.svelte';
   import Image from '$lib/components/Image.svelte';
   import RelatedLinks from '$lib/components/RelatedLinks.svelte';
+  import Accordion from '../lib/components/Accordion.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
+  import AuthorBox from '$lib/components/AuthorBox.svelte';
 
   // Article metadata
   let headline = 'Become a force for good. Join our next class.';
@@ -59,7 +62,16 @@ This is your page!
     <p>
       Our mission is to serve the public interest – by training new journalists from varied economic, racial, and cultural backgrounds who will bring much-needed diversity to newsrooms, by helping mid-career journalists retool their skills, and by partnering with other media organizations to find new paths to excellence.
     </p>
-
+  <Sidebar>
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>Low tuition rates thanks to private donor support</li>
+      <li>Master's degrees in journalism, engagement journalism, and bilingual journalism</li>
+      <li>Robust professional education program with workshops and fellowships</li>
+      <li>Accomplished faculty with strong industry connections</li>
+      <li>Commitment to diversity and serving the public interest</li>
+    </ul>
+  </Sidebar>
     <p>
       Our low tuition rates, along with the added backing of private donors, allow candidates for our master’s degrees in journalism and engagement journalism to receive a world-class education at an affordable price. We also offer a unique bilingual master’s in journalism for students fluent in English and Spanish.
     </p>
@@ -85,12 +97,28 @@ This is your page!
     </p>
   </ArticleBody>
 
+<!-- Author Box-->
+  <AuthorBox
+    name="John Doe"
+    avatarUrl="https://placehold.co/600x400"
+    bio="John Doe is a seasoned journalist with over 20 years of experience in investigative reporting."
+  />
+
   <!-- Related Stories: Links to other articles -->
   <RelatedLinks
     title="Related Stories"
     links={relatedStories}
   />
 
+  <!-- Accordion: Frequently Asked Questions -->
+  <Accordion
+    mainHeader="Frequently Asked Questions"
+    items={[
+      { header: 'What programs do you offer?', content: 'We offer master\'s degrees in journalism and engagement journalism, as well as a bilingual master\'s in journalism for students fluent in English and Spanish.' },
+      { header: 'What is the tuition cost?', content: 'Our tuition rates are among the lowest for journalism schools, thanks to private donor support. Please visit our website for current tuition information.' },
+      { header: 'How can I apply?', content: 'You can apply through our online application portal. We look for candidates with strong writing skills, a passion for journalism, and a commitment to serving the public interest.' },
+    ]}
+  />
 </div>
 
 <style>
